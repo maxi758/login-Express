@@ -38,7 +38,8 @@ app.post("/login", function (req, res) {
     }    
   }
   if(!flag) {
-    res.send("usr/pwd incorrectos");
+    alert("usuario y/o contraseña incorrectos");
+    res.redirect("/login");
   }
 });
 
