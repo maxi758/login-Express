@@ -1,0 +1,31 @@
+body {
+  font-family: monospace;
+}
+
+form {
+  background-color: cornflowerblue;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid navy;
+}
+
+form > input {
+  margin: 10px;
+  border-radius: 3px;
+  border: 1px solid navy;
+  font-family: inherit;
+}
+
+#btn-submit {
+  border: none;
+  background-color: navy;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#btn-submit:hover {
+  background-color: blue;
+}
