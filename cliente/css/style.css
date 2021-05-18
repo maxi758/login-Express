@@ -1,5 +1,6 @@
 body {
   font-family: monospace;
+  background-color: rgb(2, 29, 5);
 }
 
 h1{
@@ -19,7 +20,7 @@ body div{
 }
 .div-style input{
   position:absolute;
-  margin-left: 70px;
+  margin-left: 200px;
   width: 100px;
 }
 .btn-submit{
@@ -27,9 +28,9 @@ body div{
   color: blanchedalmond;
   border-radius: 15px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
   height: 2em;
-  width: 5em;
+  width: 7em;
   font-size: large;
 }
 .btn-submit:hover{
@@ -43,7 +44,7 @@ form{
   padding: 10px;
   margin: 5px;
   box-sizing: border-box;
-  width: 400px;
+  width: 450px;
   height: 250px;
   text-align: center;
  

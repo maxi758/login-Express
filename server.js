@@ -16,7 +16,7 @@ let users= [{
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware para archivos de imagen, css, scripts, etc ("recursos estáticos")
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "cliente")));
 
 // GET inicial, retorna la página index.html
 app.get("/", function (req, res) {
