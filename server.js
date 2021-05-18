@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware para archivos de imagen, css, scripts, etc ("recursos estáticos")
 app.use(express.static(path.join(__dirname, "cliente")));
 
-// GET inicial, retorna la página index.html
+// GET inicial, retorna la página login.html
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "cliente/login.html"));
 });
@@ -61,7 +61,7 @@ app.post("/register", function (req, res) {
     if(!flag) {
       users.push({user: req.body.user, password: req.body.password});
       alert("Registro exitoso");
-      res.redirect("/login");
+      res.redirect("/");
     }
     else{
       alert("Usuario ya registrado");
