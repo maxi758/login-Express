@@ -2,30 +2,54 @@ body {
   font-family: monospace;
 }
 
-form {
-  background-color: cornflowerblue;
-  margin: 10px;
-  width: 200px;
+h1{
+  color: rgb(212, 190, 60);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  border-radius: 5px;
-  border: 1px solid navy;
 }
 
-form > input {
-  margin: 10px;
-  border-radius: 3px;
-  border: 1px solid navy;
-  font-family: inherit;
+body div{
+  display: block;
 }
-
-#btn-submit {
-  border: none;
-  background-color: navy;
-  color: white;
+.div-style{
+  display: flex;
+  margin-top: 25px;
+  text-align: center;
+  font-size: large;
+}
+.div-style input{
+  position:absolute;
+  margin-left: 70px;
+  width: 100px;
+}
+.btn-submit{
+  background-color: black;
+  color: blanchedalmond;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 30px;
+  height: 2em;
+  width: 5em;
+  font-size: large;
+}
+.btn-submit:hover{
+  color: goldenrod;
+}
+.btn-submit:focus{
+  color: goldenrod;
+}
+form{
+  background-color:palegreen;
   padding: 10px;
-  border-radius: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 250px;
+  text-align: center;
+ 
 }
-
-#btn-submit:hover {
-  background-color: blue;
+#container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

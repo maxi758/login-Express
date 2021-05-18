@@ -26,12 +26,12 @@ app.get("/", function (req, res) {
 app.get("/login", function (req, res) {
   res.sendFile(path.join(__dirname, "cliente/login.html"));
 });
-// POST a /login, verifica que user y password sean un usuario registrado, en ese caso
-// retorna "ok", si no mensaje de error
+// POST a /login, verifica que user y password sean de un usuario registrado, en ese caso
+// avisa que está todo bien y redirecciona al inicio, sino mensaje de error
 app.post("/login", function (req, res) {
   let flag = false;
   for (let i = 0; i < users.length; i++) {
-    if (req.body.user === users[i].user && req.body.password === users[i].password) {
+    if (req.body.userLogin === users[i].user && req.body.passwordLogin === users[i].password) {
       flag = true;
       alert("se ha conectado correctamente");
       res.redirect("/");
