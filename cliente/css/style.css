@@ -9,6 +9,30 @@ h1{
   text-align: center;
 }
 
+nav a{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: large;
+}
+nav a:hover{
+  color: goldenrod;
+}
+nav a:focus{
+  color: goldenrod;
+}
+nav li{
+  list-style: none;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 4px;
+  margin: 4px;
+  background-color: black;
+}
+nav li:hover{
+  border: 1px dashed goldenrod;
+}
+
 body div{
   display: block;
 }
