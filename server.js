@@ -20,12 +20,12 @@ app.use(express.static(path.join(__dirname, "cliente")));
 
 // GET inicial, retorna la página index.html
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "cliente/index.html"));
-});
-
-app.get("/login", function (req, res) {
   res.sendFile(path.join(__dirname, "cliente/login.html"));
 });
+
+/*app.get("/login", function (req, res) {
+  res.sendFile(path.join(__dirname, "cliente/login.html"));
+});*/
 // POST a /login, verifica que user y password sean de un usuario registrado, en ese caso
 // avisa que está todo bien y redirecciona al inicio, sino mensaje de error
 app.post("/login", function (req, res) {
@@ -34,12 +34,15 @@ app.post("/login", function (req, res) {
     if (req.body.userLogin === users[i].user && req.body.passwordLogin === users[i].password) {
       flag = true;
       alert("se ha conectado correctamente");
-      res.redirect("/");
+      break;
     }    
   }
   if(!flag) {
     alert("usuario y/o contraseña incorrectos");
-    res.redirect("/login");
+    res.redirect("/");
+  }
+  else{
+    res.sendFile(path.join(__dirname, "cliente/index.html"));
   }
 });
 
