@@ -16,16 +16,13 @@ let users= [{
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware para archivos de imagen, css, scripts, etc ("recursos estáticos")
-app.use(express.static(path.join(__dirname, "cliente")));
+app.use(express.static(path.join(__dirname,"cliente")));
 
 // GET inicial, retorna la página login.html
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "cliente/login.html"));
+  res.sendFile(path.join(__dirname,"/cliente/login.html"));
 });
 
-/*app.get("/login", function (req, res) {
-  res.sendFile(path.join(__dirname, "cliente/login.html"));
-});*/
 // POST a /login, verifica que user y password sean de un usuario registrado, en ese caso
 // avisa que está todo bien y redirecciona al inicio, sino mensaje de error
 app.post("/login", function (req, res) {
@@ -39,7 +36,7 @@ app.post("/login", function (req, res) {
   }
   if(!flag) {
     alert("usuario y/o contraseña incorrectos");
-    res.redirect("/");
+    res.sendFile(path.join(__dirname, "cliente/login.html"));
   }
   else{
     res.sendFile(path.join(__dirname, "cliente/index.html"));
@@ -61,16 +58,16 @@ app.post("/register", function (req, res) {
     if(!flag) {
       users.push({user: req.body.user, password: req.body.password});
       alert("Registro exitoso");
-      res.redirect("/");
+      res.sendFile(path.join(__dirname, "cliente/index.html"));
     }
     else{
       alert("Usuario ya registrado");
-      res.redirect("/register");
+      res.sendFile(path.join(__dirname, "cliente/register.html"));
     }
   }
   else{
     alert("las contraseñas ingresadas no coinciden");
-    res.redirect("/register");
+    res.sendFile(path.join(__dirname, "cliente/register.html"));
   }
   
 });
