@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const alert = require("alert");
 const app = express();
 
 const PUERTO = 3000;
@@ -16,11 +15,11 @@ let users= [{
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware para archivos de imagen, css, scripts, etc ("recursos estáticos")
-app.use(express.static(path.join(__dirname,"cliente")));
+app.use(express.static(__dirname +"/client"));
 
 // GET inicial, retorna la página login.html
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname,"/cliente/login.html"));
+  res.sendFile(path.join(__dirname,"client/login.html"));
 });
 
 // POST a /login, verifica que user y password sean de un usuario registrado, en ese caso
@@ -30,44 +29,39 @@ app.post("/login", function (req, res) {
   for (let i = 0; i < users.length; i++) {
     if (req.body.userLogin === users[i].user && req.body.passwordLogin === users[i].password) {
       flag = true;
-      alert("se ha conectado correctamente");
       break;
     }    
   }
   if(!flag) {
-    alert("usuario y/o contraseña incorrectos");
-    res.sendFile(path.join(__dirname, "cliente/login.html"));
+    res.sendFile(path.join(__dirname, "client/login.html"));
   }
   else{
-    res.sendFile(path.join(__dirname, "cliente/index.html"));
+    res.sendFile(path.join(__dirname, "client/home.html"));
   }
 });
 
 app.get("/register", function (req, res) {
-  res.sendFile(path.join(__dirname, "cliente/register.html"));
+  res.sendFile(path.join(__dirname, "client/register.html"));
 });
 
 app.post("/register", function (req, res) {
   let flag = false;
   if(req.body.password === req.body.passwordRepeat){
-    for (let i = 0; i < users.length; i++) {
+    for (let i = 0; i < users.length && !flag; i++) {
       if (req.body.user === users[i].user ) {
         flag = true;   
       }    
     }
     if(!flag) {
       users.push({user: req.body.user, password: req.body.password});
-      alert("Registro exitoso");
-      res.sendFile(path.join(__dirname, "cliente/index.html"));
+      res.sendFile(path.join(__dirname, "client/home.html"));
     }
     else{
-      alert("Usuario ya registrado");
-      res.sendFile(path.join(__dirname, "cliente/register.html"));
+      res.sendFile(path.join(__dirname, "client/register.html"));
     }
   }
   else{
-    alert("las contraseñas ingresadas no coinciden");
-    res.sendFile(path.join(__dirname, "cliente/register.html"));
+    res.sendFile(path.join(__dirname, "client/register.html"));
   }
   
 });

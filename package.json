@@ -1,5 +1,5 @@
 {
-  "name": "login-form",
+  "name": "login-express",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,10 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxi758/login-Express.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxi758/login-Express/issues"
+  },
+  "homepage": "https://github.com/maxi758/login-Express#readme",
   "dependencies": {
-    "alert": "^5.0.10",
     "express": "^4.17.1"
   }
 }
